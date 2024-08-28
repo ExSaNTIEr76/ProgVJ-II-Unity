@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2357157549544643503
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.394
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.393
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199607268912426090, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151158367021166278, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_Radius
+      value: 0.5775028
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151158367021166278, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0020395517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151158367021166278, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0061185956
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745180973767470836, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_Name
+      value: emigo Tipo 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574433021045335565, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13f0af8574513434e97449db1f4fa764, type: 3}
+    - target: {fileID: 4715827843360978836, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: puntos
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1745180973767470836, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7292311530628634381}
+  m_SourcePrefab: {fileID: 100100000, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+--- !u!1 &4075316295255668059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1745180973767470836, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+  m_PrefabInstance: {fileID: 2357157549544643503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7292311530628634381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075316295255668059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36afdb8386462e4894a4cc96e8f0e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuerzaSalto: 5
