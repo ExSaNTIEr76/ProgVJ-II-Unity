@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: puntos
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7543202170335186046, guid: 6f80fea05a148e749b4fa0db0cc45b1e, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

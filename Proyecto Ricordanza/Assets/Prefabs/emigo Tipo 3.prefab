@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: emigo Tipo 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5195069458946054097, guid: 27e2ce1522147184aafd6f824f30157c, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
