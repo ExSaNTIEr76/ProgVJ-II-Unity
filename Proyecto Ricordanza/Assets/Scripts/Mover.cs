@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    // Variables a configurar desde el editor
     [Header("Configuracion")]
     [SerializeField] float velocidad = 5f;
 
-    // Variables de uso interno en el script
     private float moverHorizontal;
     private Vector2 direccion;
+    private bool mirandoALaDerecha = true; // Nueva variable para controlar la dirección del jugador
 
-    // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
     private Animator miAnimator;
     private SpriteRenderer miSprite;
@@ -20,7 +18,6 @@ public class Mover : MonoBehaviour
 
     private int saltarMask;
 
-    // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,27 +27,44 @@ public class Mover : MonoBehaviour
         saltarMask = LayerMask.GetMask("Pisos", "Plataformas");
     }
 
-    // Codigo ejecutado en cada frame del juego (Intervalo variable)
     private void Update()
     {
         moverHorizontal = Input.GetAxis("Horizontal");
         direccion = new Vector2(moverHorizontal, 0f);
-       
-        int velocidadX = (int)miRigidbody2D.velocity.x;
-        miSprite.flipX = velocidadX < 0;
+
+        // Verificar si el jugador está moviéndose hacia la derecha o izquierda
+        if (moverHorizontal > 0 && !mirandoALaDerecha)
+        {
+            Voltear();
+        }
+        else if (moverHorizontal < 0 && mirandoALaDerecha)
+        {
+            Voltear();
+        }
+
+        // Actualizar la animación según la velocidad
+        int velocidadX = Mathf.Abs((int)miRigidbody2D.velocity.x); // Abs para evitar valores negativos
         miAnimator.SetInteger("Velocidad", velocidadX);
 
+        // Comprobar si está en el aire
         miAnimator.SetBool("EnAire", !EnContactoConPlataforma());
-        
     }
 
     private void FixedUpdate()
     {
+        // Aplicar la fuerza de movimiento al personaje
         miRigidbody2D.AddForce(direccion * velocidad);
     }
 
     private bool EnContactoConPlataforma()
     {
         return miCollider2D.IsTouchingLayers(saltarMask);
+    }
+
+    // Función para voltear el sprite
+    private void Voltear()
+    {
+        mirandoALaDerecha = !mirandoALaDerecha;
+        miSprite.flipX = !miSprite.flipX; // Voltear el sprite horizontalmente
     }
 }
