@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: b1d5ffd5cbdb299499f607ff42efcb98
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - jumpSFX: {fileID: 8300000, guid: a7cc43948f90bc24097497c77e98fe1c, type: 3}
+  - collisionSFX: {fileID: 8300000, guid: 1e24ac3231fb1da4b8cfe9184c8fd51d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

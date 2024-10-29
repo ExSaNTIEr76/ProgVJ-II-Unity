@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    [Header("Configuracion")]
-    [SerializeField] float velocidad = 5f;
-
     private float moverHorizontal;
     private Vector2 direccion;
-    private bool mirandoALaDerecha = true; // Nueva variable para controlar la dirección del jugador
+    private bool mirandoALaDerecha = true;
 
     private Rigidbody2D miRigidbody2D;
     private Animator miAnimator;
     private SpriteRenderer miSprite;
     private BoxCollider2D miCollider2D;
+    private Jugador jugador;
 
     private int saltarMask;
 
@@ -25,6 +23,13 @@ public class Mover : MonoBehaviour
         miSprite = GetComponent<SpriteRenderer>();
         miCollider2D = GetComponent<BoxCollider2D>();
         saltarMask = LayerMask.GetMask("Pisos", "Plataformas");
+        jugador = GetComponent<Jugador>();
+
+        // Verifica que el perfil esté asignado
+        if (jugador.PerfilJugador == null)
+        {
+            Debug.LogError("Perfil de jugador no asignado en el componente Jugador.");
+        }
     }
 
     private void Update()
@@ -32,7 +37,7 @@ public class Mover : MonoBehaviour
         moverHorizontal = Input.GetAxis("Horizontal");
         direccion = new Vector2(moverHorizontal, 0f);
 
-        // Verificar si el jugador está moviéndose hacia la derecha o izquierda
+        // Comprobar la dirección y voltear el sprite si es necesario
         if (moverHorizontal > 0 && !mirandoALaDerecha)
         {
             Voltear();
@@ -42,18 +47,18 @@ public class Mover : MonoBehaviour
             Voltear();
         }
 
-        // Actualizar la animación según la velocidad
-        int velocidadX = Mathf.Abs((int)miRigidbody2D.velocity.x); // Abs para evitar valores negativos
+        // Actualizar la animación según la velocidad en X
+        int velocidadX = Mathf.Abs((int)miRigidbody2D.velocity.x);
         miAnimator.SetInteger("Velocidad", velocidadX);
 
-        // Comprobar si está en el aire
+        // Actualizar si está en el aire
         miAnimator.SetBool("EnAire", !EnContactoConPlataforma());
     }
 
     private void FixedUpdate()
     {
-        // Aplicar la fuerza de movimiento al personaje
-        miRigidbody2D.AddForce(direccion * velocidad);
+        // Se actualiza la velocidad directamente para controlar mejor el movimiento
+        miRigidbody2D.velocity = new Vector2(direccion.x * jugador.PerfilJugador.VelocidadHorizontal, miRigidbody2D.velocity.y);
     }
 
     private bool EnContactoConPlataforma()
@@ -61,10 +66,9 @@ public class Mover : MonoBehaviour
         return miCollider2D.IsTouchingLayers(saltarMask);
     }
 
-    // Función para voltear el sprite
     private void Voltear()
     {
         mirandoALaDerecha = !mirandoALaDerecha;
-        miSprite.flipX = !miSprite.flipX; // Voltear el sprite horizontalmente
+        miSprite.flipX = !miSprite.flipX;
     }
 }

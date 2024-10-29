@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: cbd48dcd18fb1004aad8fa4956a98cc0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bolsa: {fileID: 7816370169701664929, guid: 3d6064420d6fbdd4d870bfaf3a585baa, type: 3}
+  - padreObjetivos: {fileID: 272619213920923680, guid: c17e41bd593315641a70a65d6e9efcf9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
