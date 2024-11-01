@@ -16,6 +16,6 @@ MonoBehaviour:
   escalarExperiencia: 10
   velocidad: 5
   fuerzaSalto: 25
-  vida: 5
+  vida: 3
   jumpSFX: {fileID: 8300000, guid: a7cc43948f90bc24097497c77e98fe1c, type: 3}
   collisionSFX: {fileID: 8300000, guid: 1e24ac3231fb1da4b8cfe9184c8fd51d, type: 3}

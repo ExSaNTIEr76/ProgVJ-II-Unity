@@ -29,8 +29,8 @@ public class PerfilJugador : ScriptableObject
     [Header("Configuraciones de Movimiento")]
 
     [SerializeField]
-    [Range(5, 20)] 
-    float velocidad = 20f;
+    [Range(5, 10)] 
+    float velocidad = 10f;
     public float VelocidadHorizontal { get => velocidad; set => velocidad = value; }
 
 
@@ -39,9 +39,9 @@ public class PerfilJugador : ScriptableObject
 
     [Header("Configuraciones de Atributos")]
     [SerializeField]
-    [Range(5, 10)]
-    private float vida = 5f;
-    public float Vida { get => vida; set => vida = value; }
+    [Range(1, 10)]
+    private int vida = 1;
+    public int Vida { get => vida; set => vida = value; }
 
 
     [Header("Configuraciones SFX")]
