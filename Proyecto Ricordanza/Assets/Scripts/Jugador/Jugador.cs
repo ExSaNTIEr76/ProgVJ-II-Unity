@@ -22,15 +22,21 @@ public class Jugador : MonoBehaviour
     private void Start()
     {
         OnLivesChanged.Invoke(perfilJugador.Vida);
-        OnTextChanged.Invoke(perfilJugador.Vida.ToString());
+        OnTextChanged.Invoke(GameManager.Instance.GetScore().ToString());
     }
 
     public void ModificarVida(int puntos)
     {
         perfilJugador.Vida += puntos;
-        OnTextChanged.Invoke(perfilJugador.Vida.ToString());
+        GameManager.Instance.AddScore(puntos * 100);
+        OnTextChanged.Invoke(GameManager.Instance.GetScore().ToString());
         OnLivesChanged.Invoke(perfilJugador.Vida);
-        Debug.Log(EstasVivo());
+
+        if (!EstasVivo())
+        {
+            Debug.Log("PERDISTE");
+            ApplicationManager.Instance.GoToPortada();
+        }
     }
 
     private bool EstasVivo()

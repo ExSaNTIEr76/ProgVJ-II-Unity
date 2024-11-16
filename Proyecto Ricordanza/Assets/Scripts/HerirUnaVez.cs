@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Herir : MonoBehaviour
+public class HerirUnaVez : MonoBehaviour
 {
     // Variables a configurar desde el editor
     [Header("Configuracion")]
@@ -14,7 +14,10 @@ public class Herir : MonoBehaviour
         {
             Jugador jugador = collision.gameObject.GetComponent<Jugador>();
             jugador.ModificarVida(-puntos);
-            Debug.Log(" PUNTOS DE DAÑO REALIZADOS AL JUGADOR "+ puntos);
+            Debug.Log(" PUNTOS DE DANO REALIZADOS AL JUGADOR "+ puntos);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+        
     }
 }
