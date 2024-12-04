@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     private int score;
+    private int vidas = 5; // Valor predeterminado de vidas
 
     private void Awake()
     {
@@ -16,50 +16,11 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            score = 1000;
+            score = 1000; // Valor predeterminado de puntos
         }
         else
         {
             Destroy(gameObject);
-        }
-    }
-
-    private void OnEnable()
-    {
-        GameEvents.OnPause += Pausar;
-        GameEvents.OnResume += Reanudar;
-    }
-
-    private void OnDisable()
-    {
-        GameEvents.OnPause -= Pausar;
-        GameEvents.OnResume -= Reanudar;
-    }
-
-    private void Pausar()
-    {
-        Time.timeScale = 0;
-        Debug.Log("PAUSADO");
-    }
-
-    private void Reanudar()
-    {
-        Time.timeScale = 1;
-        Debug.Log("REANUDADO");
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Time.timeScale != 0)
-            {
-                GameEvents.TriggerPause();
-            }
-            else
-            {
-                GameEvents.TriggerResume();
-            }
         }
     }
 
@@ -76,5 +37,27 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public void ResetGameDefaults()
+    {
+        // Restablecer valores predeterminados
+        score = 1000;
+        vidas = 5;
+
+        // Guardar en PersistenceManager
+        PersistenceManager.Instance.SetInt(PersistenceManager.KeyScore, score);
+        PersistenceManager.Instance.SetInt("Vidas", vidas);
+    }
+
+    public int GetVidas()
+    {
+        return vidas;
+    }
+
+    public void ModificarVidas(int cantidad)
+    {
+        vidas += cantidad;
+        if (vidas < 0) vidas = 0;
     }
 }

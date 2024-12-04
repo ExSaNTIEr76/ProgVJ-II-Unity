@@ -11,6 +11,7 @@ public class PersistenceManager : MonoBehaviour
     public static string KeyVolume { get => Instance.keyVolume; }
     public static string KeyUser {get => Instance.keyUser; }
     public static string KeyScore { get => Instance.keyScore; }
+    public static string KeyVidas { get => "Vidas"; }
 
 
     [SerializeField] private string keyMusic, keyVolume, keyUser, keyScore;
